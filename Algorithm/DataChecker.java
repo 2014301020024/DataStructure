@@ -14,7 +14,7 @@ public class DataChecker {
         Random r = new Random();
 
         // 产生一个长度为 1000 的数组
-        int[] arr = new int[1000];
+        int[] arr = new int[10000];
 
         for (int i = 0; i < arr.length; i++) {
             // 依次给相应的位置赋予一个 [0, 10000) 之间的随机数
