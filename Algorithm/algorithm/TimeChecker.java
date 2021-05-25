@@ -3,9 +3,9 @@ package algorithm;
 public class TimeChecker {
     public static void main(String[] args) {
         int[] arr = DataChecker.generateRandomArray();
-        int epoch = 1000;
+        int epoch = 100;
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             int[] arr1 = arr.clone();
             Selection.simpleSort(arr1);
         }

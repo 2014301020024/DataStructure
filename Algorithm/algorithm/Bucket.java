@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 
-public class BucketSort {
+public class Bucket {
     public static void main(String[] args) {
         int[] arr = {0, 12, 18, 93, 45, 76, 89, 3, 55, 98, 67, 100};
         int[] result = sort(arr);
@@ -19,7 +19,7 @@ public class BucketSort {
         int difference = maxNum - minNum;
         int start = 0;
         for (int i = 0; i < 4; i++) {
-            List list = new ArrayList(arr.length);
+            List<Integer> list = new ArrayList<>(arr.length);
             for (int k : arr) {
                 if ((difference * i / 4 + minNum) <= k && k <= minNum + +difference * (i + 1) / 4)
                     list.add(k);

@@ -9,7 +9,7 @@ public class DataChecker {
     }
 
     // 产生随机数组的功能函数
-    static int[] generateRandomArray() {
+    public static int[] generateRandomArray() {
         //实例化 Random 类为 r
         Random r = new Random();
 
@@ -37,7 +37,7 @@ public class DataChecker {
             Arrays.sort(arr);
 
             // 你的算法，下面这条可以改变
-            Merge.simpleSort(arr2, 0, arr2.length - 1);
+            Quick.quickSort(arr2, 0, arr2.length - 1);
 
             // 判断两个数组是否相同
             boolean same = true;

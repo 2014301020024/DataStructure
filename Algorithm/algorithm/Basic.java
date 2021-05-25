@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.Arrays;
 
-public class BasicSort {
+public class Basic {
     public static void main(String[] args) {
         int[] arr = {420, 240, 3623, 115, 532, 305, 430, 124, 1234, 987};
         int[] result = sort(arr);
