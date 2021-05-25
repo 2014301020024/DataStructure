@@ -1,15 +1,15 @@
-package Algorithm;
+package algorithm;
 
 import java.util.Random;
 
 public class Exercise {
     public static void main(String[] args) {
-        System.out.println((0 + 15)/2);
+        System.out.println((0 + 15) / 2);
         System.out.println(2.0e-6 * 1000000000.1);
         System.out.println(true && false || true && true);
         System.out.println();
 
-        System.out.println((1 + 2.236)/2);
+        System.out.println((1 + 2.236) / 2);
         System.out.println(1 + 2 + 3 + 4.0);
         System.out.println(4.1 >= 4);
         System.out.println(1 + 2 + '3');
@@ -42,24 +42,24 @@ public class Exercise {
         System.out.println(ln(N));
     }
 
-    public static void equal(int a, int b, int c){
-        if (a == b && b == c){
+    public static void equal(int a, int b, int c) {
+        if (a == b && b == c) {
             System.out.println("equal");
         } else {
             System.out.println("not equal");
         }
     }
 
-    public static void jst(double x, double y){
+    public static void jst(double x, double y) {
         System.out.println(x > 0 && x < 1 && y > 0 && y < 1);
     }
 
-    public static void print2D(int[][] a){
+    public static void print2D(int[][] a) {
         System.out.println("    0    1    2    3    4");
         for (int i = 0; i < 5; i++) {
             System.out.print(i + "   ");
             for (int j = 0; j < 5; j++) {
-                if (a[i][j] == 0){
+                if (a[i][j] == 0) {
                     System.out.print("     ");
                 } else {
                     System.out.printf("%s    ", '*');
@@ -69,7 +69,7 @@ public class Exercise {
         }
     }
 
-    public static int ln(int N){
+    public static int ln(int N) {
         if (N == 1) {
             return 1;
         } else {

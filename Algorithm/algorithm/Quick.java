@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.Arrays;
 
@@ -9,14 +9,14 @@ public class Quick {
         System.out.println(Arrays.toString(arr));
     }
 
-    static void simpleSort(int[] arr){
+    static void simpleSort(int[] arr) {
         int i = 0;
         int j = arr.length - 2;
         int bench = arr[arr.length - 1];
-        while (i < j){
-            if (arr[i] > bench && arr[j] < bench){
+        while (i < j) {
+            if (arr[i] > bench && arr[j] < bench) {
                 swap(arr, i++, j--);
-            } else if (arr[i] < bench){
+            } else if (arr[i] < bench) {
                 i++;
             } else {
                 j--;
@@ -27,9 +27,9 @@ public class Quick {
         arr[i] = bench;
     }
 
-    static void swap(int[] arr, int i, int j){
+    static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
-        arr[j]= temp;
+        arr[j] = temp;
     }
 }

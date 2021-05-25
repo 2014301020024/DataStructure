@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -9,7 +9,7 @@ public class DataChecker {
     }
 
     // 产生随机数组的功能函数
-    static int[] generateRandomArray(){
+    static int[] generateRandomArray() {
         //实例化 Random 类为 r
         Random r = new Random();
 
@@ -23,7 +23,7 @@ public class DataChecker {
         return arr;
     }
 
-    static void check(){
+    static void check() {
         float num = 0.0f;
         // 产生 1000 次随机数组
         for (int i = 0; i < 1000; i++) {
@@ -47,10 +47,10 @@ public class DataChecker {
                     break;
                 }
             }
-            if (same){
+            if (same) {
                 num += 1;
             }
         }
-        System.out.println("正确率为： " + num/10 + "%");
+        System.out.println("正确率为： " + num / 10 + "%");
     }
 }

@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 public class TimeChecker {
     public static void main(String[] args) {
