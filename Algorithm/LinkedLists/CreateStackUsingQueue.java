@@ -13,9 +13,10 @@ public class CreateStackUsingQueue {
             queue.add(i);
         }
 
-        while (!queue.isEmpty()){
-            System.out.println(queue.poll());
-        }
+        System.out.println(queue.poll());
+        queue.add(6);
+        System.out.println(queue.poll());
+
     }
 
     /* 用两个 Queue 创建一个 Stack 也可以有多种思想: 在add的时候进行处理或者在poll的时候
@@ -39,10 +40,13 @@ public class CreateStackUsingQueue {
 
 
         public void add(int value){
-            if (queueTwo.isEmpty()) {
+            if (isEmpty()){
                 queueOne.add(value);
-            } else {
+            }
+            else if (queueOne.isEmpty()) {
                 queueTwo.add(value);
+            } else {
+                queueOne.add(value);
             }
         }
 
