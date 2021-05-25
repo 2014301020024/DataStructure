@@ -1,4 +1,4 @@
-package algorithm;
+package Sort;
 
 public class Selection {
     public static void main(String[] args) {

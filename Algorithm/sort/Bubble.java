@@ -1,4 +1,4 @@
-package algorithm;
+package Sort;
 
 
 public class Bubble {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = algorithm.DataChecker.generateRandomArray();
+        int[] arr = Sort.DataChecker.generateRandomArray();
         Arrays.sort(arr);
         int key = 2567;
         int res = rank(key, arr);
