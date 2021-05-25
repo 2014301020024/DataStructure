@@ -2,7 +2,6 @@ package LinkedLists;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class CreateStackUsingQueue {
     public static void main(String[] args) {
