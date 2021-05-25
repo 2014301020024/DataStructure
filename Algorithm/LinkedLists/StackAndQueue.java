@@ -1,8 +1,18 @@
 package LinkedLists;
 
-public class CreateQueue {
+public class StackAndQueue {
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println("--");
+        MyQueue<Integer> myqueue = new MyQueue<>();
+
+        int[] arr = {1, 2, 0, 3, 2};
+        for (int j : arr) {
+            myqueue.push(j);
+        }
+
+        while (!myqueue.isEmpty()){
+            System.out.println(myqueue.pop());
+        }
     }
 
     public static class DoubleNode<T> {
@@ -22,7 +32,7 @@ public class CreateQueue {
 
 
         public void addFromHead(T value){
-            DoubleNode<T> cur = new DoubleNode<T>(value);
+            DoubleNode<T> cur = new DoubleNode<>(value);
             if (head == null){
                 head = cur;
                 tail = cur;
@@ -88,7 +98,7 @@ public class CreateQueue {
         private final DoubleEndsQueues<T> queue;
 
         public MyStack(){
-            queue = new DoubleEndsQueues<T>();
+            queue = new DoubleEndsQueues<>();
         }
 
         public void push(T value){
@@ -124,5 +134,6 @@ public class CreateQueue {
         public boolean isEmpty(){
             return queue.isEmpty();
         }
+
     }
 }
