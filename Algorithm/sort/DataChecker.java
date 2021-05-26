@@ -37,7 +37,7 @@ public class DataChecker {
             Arrays.sort(arr);
 
             // 你的算法，下面这条可以改变
-            Quick.quickSort(arr2, 0, arr2.length - 1);
+            Quick.dualPivotQuickSort(arr2, 0, arr2.length - 1);
 
             // 判断两个数组是否相同
             boolean same = true;

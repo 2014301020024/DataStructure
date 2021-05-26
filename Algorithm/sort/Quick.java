@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Quick {
     public static void main(String[] args) {
-        int[] arr = {20, 2, 3, 9, 5, 8, 7, 16};
+        int[] arr = {14, 2, 3, 9, 5, 8, 7, 6};
         dualPivotQuickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
@@ -38,41 +38,42 @@ public class Quick {
 
     // 双轴快排
 
-    public static void dualPivotQuickSort(int[] arr, int start, int end){
-        if(start>end) return;//参数不对直接返回
-        if(arr[start]>arr[end])
-            swap(arr, start, end);
-        int pivot1 = arr[start], pivot2 = arr[end];//储存最左侧和最右侧的值
-        //(start，left]:左侧小于等于pivot1 [right,end)大于pivot2
-        int left = start, right = end,k = left + 1;
-        while (k < right) {
-            //和左侧交换
-            if (arr[k] <= pivot1)
-            {
-                swap(arr, ++left, k++);
+    public static void dualPivotQuickSort(int[] arr, int left, int right){
+        if (left <= right){
+            if (arr[left] > arr[right]) {
+                swap(arr, left, right);
             }
-            //在中间的情况
-            else if (arr[k] <= pivot2) {
-                k++;
-            }
-            else {
-                //如果全部小于直接跳出外层循环
-                while (arr[right] >= pivot2) {
-                    if(right-- == k)
-                        break ;
+            int tempMin = arr[left];
+            int tempMax = arr[right];
+            int L = left;
+            int R = right;
+            int K = left + 1;
+            while (K < R){
+                if (arr[K] < tempMin){
+                    swap(arr, ++L, K++);
+                } else if (arr[K] <= tempMax){
+                    K++;
+                } else {
+                    while (arr[--R] >= tempMax){
+                        if (K == R){
+                            break;
+                        }
+                    }
+                    if (K >= R){
+                        break;
+                    }
+                    swap(arr, K, R);
                 }
-                if (k >= right) break;
-                swap(arr, k, right);
             }
+
+            swap(arr, L, left);
+            swap(arr, R, right);
+            dualPivotQuickSort(arr, left, L - 1);
+            dualPivotQuickSort(arr, L + 1, R - 1);
+            dualPivotQuickSort(arr, R+1, right);
         }
-        swap(arr, start, left);
-        swap(arr, end, right);
-        dualPivotQuickSort(arr, start, left - 1);
-        dualPivotQuickSort(arr, left + 1, right - 1);
-        dualPivotQuickSort(arr, right + 1, end);
     }
-
-
+    
     static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
