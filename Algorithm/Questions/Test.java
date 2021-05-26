@@ -1,12 +1,10 @@
 package Questions;
 
 import java.util.Arrays;
+import java.util.Deque;
 
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {20, 2, 3, 9, 5, 8, 7, 0};
-        quickSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
     }
 
 
@@ -17,7 +15,6 @@ public class Test {
             quickSort(arr, cur + 1, R);
         }
     }
-
     public static int partition(int[] arr, int L, int R){
         int pivot = arr[R];
         int pivotIndex = R;

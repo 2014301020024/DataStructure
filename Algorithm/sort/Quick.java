@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Quick {
     public static void main(String[] args) {
-        int[] arr = {14, 2, 3, 9, 5, 8, 7, 6};
+        int[] arr = {0, 2, 3, 9, 5, 8, 7, 16};
         dualPivotQuickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
@@ -70,10 +70,10 @@ public class Quick {
             swap(arr, R, right);
             dualPivotQuickSort(arr, left, L - 1);
             dualPivotQuickSort(arr, L + 1, R - 1);
-            dualPivotQuickSort(arr, R+1, right);
+            dualPivotQuickSort(arr, R + 1, right);
         }
     }
-    
+
     static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];

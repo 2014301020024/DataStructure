@@ -80,7 +80,7 @@ public class TimeChecker {
         startTime = System.currentTimeMillis();
         for (int i = 0; i < epoch; i++) {
             int[] arr9 = arr.clone();
-            Merge.simpleSort(arr9, 0, arr9.length - 1);
+            Merge.mergeSort(arr9);
         }
         endTime = System.currentTimeMillis();
         System.out.println("Merge     ==> simpleSort      ==> running time ==> " + (endTime - startTime) + "ms");

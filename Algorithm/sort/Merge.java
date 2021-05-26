@@ -5,67 +5,57 @@ import java.util.Arrays;
 
 public class Merge {
     public static void main(String[] args) {
-        int[] arr = {1, 4, 9, 8, 5, 2, 10, 9};
-//        int[] arr1 = {4, 5, 7, 8, 1, 2, 3, 6};
-//        example(arr1);
-        simpleSort(arr, 0, arr.length - 1);
+        int[] arr = {1, 4, 9, 8, 5, 2, 10};
+        mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
 
-    static void simpleSort(int[] arr, int leftBound, int rightBound) {
-        if (leftBound == rightBound) return;
-        int mid = leftBound + (rightBound - leftBound) / 2;
-        simpleSort(arr, leftBound, mid);
-        simpleSort(arr, mid + 1, rightBound);
-        merge(arr, leftBound, mid, rightBound);
+    public static void mergeSort(int[] arr){
+        if (arr == null || arr.length < 2){
+            return;
+        }
+        process(arr, 0, arr.length - 1);
     }
 
-
-    static void merge(int[] arr, int leftBound, int midPtr, int rightBound) {
-        int[] temp = new int[rightBound - leftBound + 1];
-
-        int i = leftBound;
-        int j = midPtr + 1;
-        int k = 0;
-
-        while (i <= midPtr && j <= rightBound) {
-            temp[k++] = arr[i] < arr[j] ? arr[i++] : arr[j++];
+    public static void process(int[] arr, int L, int R){
+        if (L == R){
+            return;
         }
 
-        while (i <= midPtr) temp[k++] = arr[i++];
-        while (j <= rightBound) temp[k++] = arr[j++];
-
-        if (temp.length >= 0) System.arraycopy(temp, 0, arr, leftBound, temp.length);
+        int mid = L + ((R - L) >> 1);
+        process(arr, L, mid);
+        process(arr, mid + 1, R);
+        merge(arr, L, mid, R);
     }
 
 
-    static void example(int[] arr) {
-        /*   首先创建一个int类型的临时数组 temp */
-        int[] temp = new int[arr.length];
+    static void merge(int[] arr, int L, int M, int R) {
+        /*   首先创建一个int类型的临时数组 help */
+        int[] help = new int[R - L + 1];
 
-        /* 定位中间值，这里避免了数组元素个数为偶数个的bug */
-        int mid = arr.length % 2 == 0 ? arr.length / 2 - 1 : arr.length >> 1;
-
-        /* 这里定义了三个指针， i为左边序列的指针，j为右边序列的指针，k为temp数组的指针 */
+        /* 这里定义了三个指针， p1为左边序列的指针，p2为右边序列的指针，i为 help 数组的指针 */
         int i = 0;
-        int j = mid + 1;
-        int k = 0;
+        int p1 = L;
+        int p2 = M + 1;
 
         /* 当两个子数组中的任何一个数组都存有元素的时候 继续执行while内的内容 */
-        while (i <= mid && j < arr.length) {
-
-            /* 这里对左边数组的数字和右边数组的数字进行了比较
-             * 如果左边数组的数字小的时候，则将arr[i]的值赋给temp[k], 然后i加1，k加1
-             * 无论是左边数组的数字小还是右边数组的数字小的时候，temp数组的指针都要加1
+        while (p1 <= M && p2 <= R){
+            /* 这里对左边序列的数字和右边序列的数字进行了比较
+             * 如果左边序列的数字小的时候，则将 arr[i] 的值赋给 help[k], 然后 i 加 1，k 加 1
+             * 无论是左边序列的数字小还是右边序列的数字小的时候，help 数组的指针都要加1
              * */
-            temp[k++] = arr[i] < arr[j] ? arr[i++] : arr[j++];
+            help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
         }
 
-        /* 这里是通过上述的比较后判断左边数组还是右边数组遗留下了元素，则直接挪进去temp数组即可 */
-        while (i <= mid) temp[k++] = arr[i++];
-        while (j < arr.length) temp[k++] = arr[j++];
-
-        System.out.println(Arrays.toString(temp));
+        /* 这里是通过上述的比较后判断左边序列还是右边序列遗留下了元素，则直接挪进去temp数组即可 */
+        while (p1 <= M){
+            help[i++] = arr[p1++];
+        }
+        while (p2 <= R){
+            help[i++] = arr[p2++];
+        }
+        /* 将排序好的某段数组更新到 arr 中*/
+        System.arraycopy(help, 0, arr, L, help.length);
     }
 }
