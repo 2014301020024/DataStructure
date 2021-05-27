@@ -1,5 +1,6 @@
 package Sort;
 
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.PriorityQueue;
 import java.util.Stack;
@@ -37,6 +38,7 @@ public class Test {
         stack.push(1);
         stack.push(2);
 
+        System.out.println(Arrays.toString(new int[]{1, 3}));
 
     }
 
