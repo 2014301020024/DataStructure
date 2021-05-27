@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Merge {
     public static void main(String[] args) {
         int[] arr = {1, 4, 9, 8, 5, 2, 10};
-        mergeSort(arr);
+        mergeSort2(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -57,5 +57,27 @@ public class Merge {
         }
         /* 将排序好的某段数组更新到 arr 中*/
         System.arraycopy(help, 0, arr, L, help.length);
+    }
+
+
+    // 非递归实现
+    public static void mergeSort2(int[] arr){
+        if (arr == null || arr.length < 2) return;
+        int mergeSize = 1; // 当前有序的，左组长度
+
+        int N = arr.length;
+        while (mergeSize < N){
+            int L = 0;
+            while (L < N){
+                int M = L + mergeSize - 1;
+                if ( M >= N) break;
+                int R = Math.min(M + mergeSize, N - 1);
+                merge(arr, L, M, R);
+                L = R + 1;
+            }
+            // 预防越界发生不可预知的错误
+            if (mergeSize > N/2) break;
+            mergeSize <<= 1;
+        }
     }
 }
